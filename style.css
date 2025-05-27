@@ -1,13 +1,11 @@
-/* --- Tło i podstawowe style --- */
 body {
-  background-color: #1e1e1e !important; /* ciemny szary */
-  color: #f0f0f0 !important;           /* jasny tekst */
+  background-color: #1e1e1e !important;
+  color: #f0f0f0 !important;
   font-family: Arial, sans-serif;
   margin: 20px;
   font-size: 18px;
 }
 
-/* --- Nagłówek główny (na stronie głównej) --- */
 #main-title {
   text-align: center;
   font-size: 40px;
@@ -15,7 +13,6 @@ body {
   color: #f0f0f0;
 }
 
-/* --- Menu dni tygodnia (na stronie głównej) --- */
 #days {
   list-style: none;
   display: flex;
@@ -32,7 +29,6 @@ body {
   transition: color 0.3s ease;
 }
 
-/* Różne rozmiary czcionki dla dni */
 #days li#monday a {
   font-size: 24px;
 }
@@ -45,25 +41,21 @@ body {
   font-size: 22px;
 }
 
-/* Efekt hover na linkach */
 #days li a:hover {
   color: #ffcc00;
 }
 
-/* --- Styl nagłówka dnia (Poniedziałek – Ćwiczenia) --- */
 .day-title {
   text-align: center;
   font-size: 36px;
   margin-bottom: 20px;
 }
 
-/* Link „Wróć” wyśrodkowany */
 .back-link {
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* --- Styl stopera --- */
 #timer {
   text-align: center;
   font-size: 48px;
@@ -88,7 +80,6 @@ button:hover {
   background-color: #666;
 }
 
-/* --- Tabela ćwiczeń --- */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -108,7 +99,6 @@ tr:hover {
   cursor: pointer;
 }
 
-/* --- Obrazek tooltip na środku ekranu --- */
 #tooltip {
   position: absolute;
   top: 50%;
