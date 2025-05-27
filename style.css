@@ -1,6 +1,6 @@
 body {
-  background-color: #1e1e1e; /* ciemny szary */
-  color: #f0f0f0;           /* jasny tekst */
+  background-color: #1e1e1e !important; /* ciemny szary */
+  color: #f0f0f0 !important;           /* jasny tekst */
   font-family: Arial, sans-serif;
   margin: 20px;
 }
