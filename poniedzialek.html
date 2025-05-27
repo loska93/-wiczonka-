@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Poniedziałek – Ćwiczenia</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
-  <h1>Poniedziałek – Ćwiczenia</h1>
-  <a href="index.html">← Wróć</a>
+  <h1 class="day-title">Poniedziałek – Ćwiczenia</h1>
+  <div class="back-link"><a href="index.html">← Wróć</a></div>
+
+  <div id="timer">
+    <div id="time">01:00</div>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="resetTimer()">Restart</button>
+  </div>
 
   <table>
     <tr>
@@ -37,12 +43,6 @@
   </table>
 
   <div id="tooltip"><img src="" alt=""></div>
-
-  <div id="timer">
-    <div id="time">01:00</div>
-    <button onclick="startTimer()">Start</button>
-    <button onclick="resetTimer()">Restart</button>
-  </div>
 
   <script src="script.js"></script>
 </body>
