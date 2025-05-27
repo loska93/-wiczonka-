@@ -1,1 +1,85 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Piątek</title><link rel='stylesheet' href='style.css'></head><body><h1>Piątek – W przygotowaniu</h1><a href='index.html'>← Wróć</a></body></html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Piątek – Ćwiczenia</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 class="page-title">Piątek</h1>
+  <h2 class="subtitle">Ćwiczenia</h2>
+  <a href="index.html" style="color: #f0f0f0; display: block; margin-bottom: 20px;">← Wróć</a>
+
+  <div id="timer">
+    <div id="time">01:00</div>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="resetTimer()">Restart</button>
+  </div>
+
+  <table>
+    <tr>
+      <th>Ćwiczenie</th>
+      <th>Kolor Taśmy</th>
+    </tr>
+    <tr>
+      <td class="exercise" data-img="https://pump-app.s3.eu-west-2.amazonaws.com/exercise-assets/08961101-Band-face-pull_Shoulders_small.jpg">Band Face Pull</td>
+      <td>
+        <select>
+          <option>Żółty</option>
+          <option>Czerwony</option>
+          <option>Czarny</option>
+          <option>Fioletowy</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td class="exercise" data-img="https://liftmanual.com/wp-content/uploads/2023/04/band-front-raise.jpg">Band Front Raise</td>
+      <td>
+        <select>
+          <option>Żółty</option>
+          <option>Czerwony</option>
+          <option>Czarny</option>
+          <option>Fioletowy</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td class="exercise" data-img="https://www.endomondo.com/wp-content/uploads/2024/02/Resistance-Band-Lateral-Raises-1.jpg">Band Lateral Raise</td>
+      <td>
+        <select>
+          <option>Żółty</option>
+          <option>Czerwony</option>
+          <option>Czarny</option>
+          <option>Fioletowy</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td class="exercise" data-img="https://www.endomondo.com/wp-content/uploads/2024/01/Resistance-Band-Bicep-Curl-1.jpg">Band Biceps Curl</td>
+      <td>
+        <select>
+          <option>Żółty</option>
+          <option>Czerwony</option>
+          <option>Czarny</option>
+          <option>Fioletowy</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td class="exercise" data-img="https://liftmanual.com/wp-content/uploads/2023/04/resistance-band-hammer-curl.jpg">Band Hammer Curl</td>
+      <td>
+        <select>
+          <option>Żółty</option>
+          <option>Czerwony</option>
+          <option>Czarny</option>
+          <option>Fioletowy</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+
+  <div id="tooltip"><img src="" alt=""></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
