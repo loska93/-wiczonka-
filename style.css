@@ -1,0 +1,64 @@
+body {
+  font-family: sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+select {
+  padding: 5px;
+}
+
+#tooltip {
+  position: absolute;
+  display: none;
+  z-index: 10;
+  border: 1px solid #ccc;
+  background: white;
+  padding: 5px;
+}
+
+#tooltip img {
+  max-width: 200px;
+  height: auto;
+}
+
+#timer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#time {
+  font-size: 2em;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  margin: 5px;
+}
