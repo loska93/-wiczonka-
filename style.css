@@ -1,64 +1,77 @@
 body {
-  font-family: sans-serif;
-  background-color: #1e1e1e;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  text-align: center;
-}
-
-nav li {
-  display: inline-block;
-  margin: 0 15px;
+  background-color: #1e1e1e; /* ciemny szary */
+  color: #f0f0f0;           /* jasny tekst */
+  font-family: Arial, sans-serif;
+  margin: 20px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 th, td {
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 12px 15px;
+  border: 1px solid #444;
+  text-align: left;
+}
+
+th {
+  background-color: #333;
+}
+
+tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+tr:hover {
+  background-color: #444;
 }
 
 select {
   padding: 5px;
+  background-color: #333;
+  color: #f0f0f0;
+  border: 1px solid #555;
+  border-radius: 4px;
+}
+
+#timer {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+button, #restart {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover, #restart:hover {
+  background-color: #555;
 }
 
 #tooltip {
   position: absolute;
   display: none;
-  z-index: 10;
-  border: 1px solid #ccc;
-  background: white;
+  border: 2px solid #ccc;
+  background-color: #222;
   padding: 5px;
+  border-radius: 6px;
+  max-width: 250px;
+  z-index: 10;
 }
 
 #tooltip img {
-  max-width: 200px;
+  width: 100%;
   height: auto;
-}
-
-#timer {
-  text-align: center;
-  margin-top: 40px;
-}
-
-#time {
-  font-size: 2em;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 1em;
-  margin: 5px;
+  display: block;
 }
