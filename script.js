@@ -52,12 +52,14 @@ document.querySelectorAll(".exercise").forEach((el) => {
   });
 });
 
-// Zapamiętywanie kolorów taśm
+// Zapamiętywanie kolorów taśm z uwzględnieniem dnia (data-day z body)
+const day = document.body.dataset.day || "default";
+
 document.querySelectorAll("table tr").forEach((row, index) => {
   const select = row.querySelector("select");
   if (!select) return;
 
-  const key = "tasma_" + index;
+  const key = `tasma_${day}_${index}`;
 
   // Załaduj poprzedni wybór (jeśli był)
   const saved = localStorage.getItem(key);
