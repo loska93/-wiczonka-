@@ -32,6 +32,7 @@ function resetTimer() {
 
 updateDisplay();
 
+// Tooltip z obrazkiem
 document.querySelectorAll(".exercise").forEach((el) => {
   el.addEventListener("mouseenter", (e) => {
     const tooltip = document.getElementById("tooltip");
@@ -48,5 +49,22 @@ document.querySelectorAll(".exercise").forEach((el) => {
   el.addEventListener("mouseleave", () => {
     const tooltip = document.getElementById("tooltip");
     tooltip.style.display = "none";
+  });
+});
+
+// Zapamiętywanie kolorów taśm
+document.querySelectorAll("table tr").forEach((row, index) => {
+  const select = row.querySelector("select");
+  if (!select) return;
+
+  const key = "tasma_" + index;
+
+  // Załaduj poprzedni wybór (jeśli był)
+  const saved = localStorage.getItem(key);
+  if (saved) select.value = saved;
+
+  // Zapisuj przy zmianie
+  select.addEventListener("change", () => {
+    localStorage.setItem(key, select.value);
   });
 });
