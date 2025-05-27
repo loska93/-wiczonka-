@@ -7,7 +7,7 @@ body {
   font-size: 18px;
 }
 
-/* Wyśrodkowanie nagłówka */
+/* Wyśrodkowanie nagłówka w podstronach */
 h1 {
   text-align: center;
   margin-bottom: 20px;
@@ -74,4 +74,34 @@ select {
   border: 1px solid #555;
   background-color: #1e1e1e;
   color: #f0f0f0;
+}
+
+/* --- Nagłówek główny w index.html --- */
+#main-title {
+  text-align: center;
+  font-size: 48px;   /* duża czcionka */
+  margin-bottom: 40px;
+  color: #f0f0f0;
+}
+
+/* --- Menu dni tygodnia w index.html --- */
+#days {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* wyśrodkowanie poziome */
+  gap: 50px;               /* odstęp między dniami */
+  padding: 0;
+  margin: 0;
+}
+
+#days li a {
+  text-decoration: none;
+  color: #f0f0f0;
+  font-weight: bold;
+  font-size: 28px;      /* większa czcionka dla dni */
+  transition: color 0.3s ease;
+}
+
+#days li a:hover {
+  color: #ffcc00;
 }
