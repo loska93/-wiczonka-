@@ -14,25 +14,47 @@ function updateDisplay() {
 
 function startTimer() {
   if (timer) return;
-  timer = setInterval(() => {
-    if (timeLeft > 0) {
-      if (timeLeft === 1) {
-        dingSound.play();
+
+  // Próba „uaktywnienia” dźwięku — musi być wywołane po kliknięciu, żeby działało na telefonach
+  dingSound.play().then(() => {
+    dingSound.pause();
+    dingSound.currentTime = 0;
+
+    timer = setInterval(() => {
+      if (timeLeft > 0) {
+        if (timeLeft === 1) {
+          dingSound.play();
+        }
+        timeLeft--;
+        updateDisplay();
+      } else {
+        clearInterval(timer);
+        timer = null;
+        alert("Koniec!");
       }
-      timeLeft--;
-      updateDisplay();
-    } else {
-      clearInterval(timer);
-      timer = null;
-      alert("Koniec!");
-    }
-  }, 1000);
+    }, 1000);
+
+  }).catch((e) => {
+    // Jeśli odtwarzanie dźwięku zablokowane, timer działa bez dźwięku
+    console.log("Dźwięk zablokowany lub nieaktywowany:", e);
+
+    timer = setInterval(() => {
+      if (timeLeft > 0) {
+        timeLeft--;
+        updateDisplay();
+      } else {
+        clearInterval(timer);
+        timer = null;
+        alert("Koniec!");
+      }
+    }, 1000);
+  });
 }
 
 function resetTimer() {
   clearInterval(timer);
   timer = null;
-  timeLeft = 60;
+  timeLeft = 10;
   updateDisplay();
 }
 
