@@ -18,6 +18,15 @@ function startTimer() {
     } else {
       clearInterval(timer);
       timer = null;
+      updateDisplay();
+
+      // 🔔 Odtwarzanie dźwięku po zakończeniu
+      const alarm = document.getElementById("alarm-sound");
+      if (alarm) {
+        alarm.currentTime = 0;
+        alarm.play();
+      }
+
       alert("Koniec!");
     }
   }, 1000);
