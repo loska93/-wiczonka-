@@ -1,5 +1,8 @@
 let timer;
-let timeLeft = 10;
+let timeLeft = 60;
+
+// Obiekt Audio dla dźwięku ringera
+const dingSound = new Audio('Box.mp3');
 
 function updateDisplay() {
   const minutes = Math.floor(timeLeft / 60);
@@ -13,20 +16,14 @@ function startTimer() {
   if (timer) return;
   timer = setInterval(() => {
     if (timeLeft > 0) {
+      if (timeLeft === 1) {
+        dingSound.play();
+      }
       timeLeft--;
       updateDisplay();
     } else {
       clearInterval(timer);
       timer = null;
-      updateDisplay();
-
-      // 🔔 Odtwarzanie dźwięku po zakończeniu
-      const alarm = document.getElementById("alarm-sound");
-      if (alarm) {
-        alarm.currentTime = 0;
-        alarm.play();
-      }
-
       alert("Koniec!");
     }
   }, 1000);
