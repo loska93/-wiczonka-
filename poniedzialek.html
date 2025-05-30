@@ -3,75 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <title>Poniedziałek – Ćwiczenia</title>
-    <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #222;
-      color: #f0f0f0;
-      padding: 20px;
-    }
-    a {
-      color: #f0f0f0;
-      display: block;
-      margin-bottom: 20px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    #timer {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    #time {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    .big-button {
-      padding: 12px 30px;
-      font-size: 1.3em;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin: 0 10px;
+    /* Styl przycisków Start i Restart tylko dla poniedziałku */
+    #timer .start-button {
+      background-color: #ff4d4d;
       color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-right: 10px;
       transition: background-color 0.3s ease;
     }
-
-    /* Czerwony Start */
-    .big-button.start {
-      background-color: #ff4d4d;
-    }
-    .big-button.start:hover {
+    #timer .start-button:hover {
       background-color: #e60000;
     }
 
-    /* Zielony Restart */
-    .big-button.restart {
+    #timer .restart-button {
       background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
     }
-    .big-button.restart:hover {
+    #timer .restart-button:hover {
       background-color: #3e8e41;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      background: #333;
-      color: #f0f0f0;
-    }
-    th, td {
-      padding: 12px;
-      border: 1px solid #555;
-      text-align: left;
-    }
-    select {
-      padding: 6px;
-      font-size: 1em;
-      border-radius: 4px;
-      border: 1px solid #444;
-      background: #222;
-      color: #f0f0f0;
     }
   </style>
 </head>
@@ -81,8 +42,8 @@
 
   <div id="timer">
     <div id="time">01:00</div>
-    <button class="big-button start" onclick="startTimer()">Start</button>
-    <button class="big-button restart" onclick="resetTimer()">Restart</button>
+    <button class="start-button" onclick="startTimer()">Start</button>
+    <button class="restart-button" onclick="resetTimer()">Restart</button>
   </div>
 
   <table>
@@ -149,7 +110,6 @@
 
   <div id="tooltip"><img src="" alt=""></div>
 
-  <!-- 🔔 Dźwięk alarmu -->
   <audio id="alarm-sound" src="Box.mp3" preload="auto"></audio>
 
   <script>
