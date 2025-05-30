@@ -111,14 +111,27 @@ select {
   font-size: 20px;
   padding: 15px 30px;
   margin: 10px;
-  background-color: #444;
-  color: #f0f0f0;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
+  color: white;
 }
 
-.big-button:hover {
-  background-color: #666;
+/* Czerwony Start */
+.big-button.start {
+  background-color: #d9534f;  /* bootstrap red */
+}
+
+.big-button.start:hover {
+  background-color: #c9302c;
+}
+
+/* Zielony Restart */
+.big-button.restart {
+  background-color: #5cb85c;  /* bootstrap green */
+}
+
+.big-button.restart:hover {
+  background-color: #4cae4c;
 }
