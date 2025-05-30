@@ -1,5 +1,5 @@
 let timer;
-let timeLeft = 9;
+let timeLeft = 8;
 
 // Obiekt Audio dla dźwięku ringera
 const dingSound = new Audio('Box.mp3');
@@ -37,6 +37,9 @@ function startTimer() {
         clearInterval(timer);
         timer = null;
         alert("Koniec!");
+        setTimeout(() => {
+          resetTimer();
+        }, 2000);
       }
     }, 1000);
   }).catch(() => {
@@ -52,6 +55,9 @@ function startTimer() {
         clearInterval(timer);
         timer = null;
         alert("Koniec!");
+        setTimeout(() => {
+          resetTimer();
+        }, 2000);
       }
     }, 1000);
   });
