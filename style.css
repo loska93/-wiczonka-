@@ -105,3 +105,20 @@ select {
 #days li a:hover {
   color: #ffcc00;
 }
+
+/* --- Duże przyciski Start i Restart --- */
+.big-button {
+  font-size: 20px;
+  padding: 15px 30px;
+  margin: 10px;
+  background-color: #444;
+  color: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.big-button:hover {
+  background-color: #666;
+}
