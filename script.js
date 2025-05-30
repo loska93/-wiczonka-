@@ -1,5 +1,5 @@
 let timer;
-let timeLeft = 60;
+let timeLeft = 10;
 
 function updateDisplay() {
   const minutes = Math.floor(timeLeft / 60);
