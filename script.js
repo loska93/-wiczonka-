@@ -1,5 +1,5 @@
 let timer;
-let timeLeft = 8;
+let timeLeft = 60;
 
 // Obiekt Audio dla dźwięku ringera
 const dingSound = new Audio('Box.mp3');
