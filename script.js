@@ -1,8 +1,11 @@
 let timer;
-let timeLeft = 10;
+let timeLeft = 9;
 
 // Obiekt Audio dla dźwięku ringera
 const dingSound = new Audio('Box.mp3');
+
+// Ustawiamy dźwięk gotowy do odtworzenia (to pomaga na mobilkach)
+dingSound.load();
 
 function updateDisplay() {
   const minutes = Math.floor(timeLeft / 60);
@@ -15,15 +18,18 @@ function updateDisplay() {
 function startTimer() {
   if (timer) return;
 
-  // Próba „uaktywnienia” dźwięku — musi być wywołane po kliknięciu, żeby działało na telefonach
+  // Przed startem wymuś załadowanie dźwięku i pauzę (ważne na telefonach)
   dingSound.play().then(() => {
     dingSound.pause();
     dingSound.currentTime = 0;
 
     timer = setInterval(() => {
       if (timeLeft > 0) {
-        if (timeLeft === 1) {
-          dingSound.play();
+        if (timeLeft <= 1) {
+          dingSound.play().catch(() => {
+            // W razie problemów z autoplay
+            console.log("Dźwięk nie odtworzony automatycznie.");
+          });
         }
         timeLeft--;
         updateDisplay();
@@ -33,13 +39,13 @@ function startTimer() {
         alert("Koniec!");
       }
     }, 1000);
-
-  }).catch((e) => {
-    // Jeśli odtwarzanie dźwięku zablokowane, timer działa bez dźwięku
-    console.log("Dźwięk zablokowany lub nieaktywowany:", e);
-
+  }).catch(() => {
+    // Jeśli odtwarzanie się nie powiedzie (np. brak interakcji), startujemy timer bez dźwięku
     timer = setInterval(() => {
       if (timeLeft > 0) {
+        if (timeLeft <= 1) {
+          console.log("Dźwięk zablokowany, nie odtwarzany.");
+        }
         timeLeft--;
         updateDisplay();
       } else {
@@ -54,7 +60,7 @@ function startTimer() {
 function resetTimer() {
   clearInterval(timer);
   timer = null;
-  timeLeft = 10;
+  timeLeft = 60;
   updateDisplay();
 }
 
