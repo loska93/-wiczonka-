@@ -1,5 +1,5 @@
 let timer;
-let timeLeft = 90;
+let timeLeft = 90;  // 1 minuta 30 sekund
 
 // Obiekt Audio dla dźwięku ringera
 const dingSound = new Audio('Box.mp3');
@@ -57,7 +57,7 @@ function startTimer() {
 function resetTimer() {
   clearInterval(timer);
   timer = null;
-  timeLeft = 60;
+  timeLeft = 90;  // reset do 1:30
   updateDisplay();
 }
 
