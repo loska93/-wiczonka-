@@ -3,9 +3,7 @@ let timeLeft = 60;
 
 // Obiekt Audio dla dźwięku ringera
 const dingSound = new Audio('Box.mp3');
-
-// Ustawiamy dźwięk gotowy do odtworzenia (to pomaga na mobilkach)
-dingSound.load();
+dingSound.load(); // Przygotowanie dźwięku
 
 function updateDisplay() {
   const minutes = Math.floor(timeLeft / 60);
@@ -18,7 +16,6 @@ function updateDisplay() {
 function startTimer() {
   if (timer) return;
 
-  // Przed startem wymuś załadowanie dźwięku i pauzę (ważne na telefonach)
   dingSound.play().then(() => {
     dingSound.pause();
     dingSound.currentTime = 0;
@@ -27,7 +24,6 @@ function startTimer() {
       if (timeLeft > 0) {
         if (timeLeft <= 1) {
           dingSound.play().catch(() => {
-            // W razie problemów z autoplay
             console.log("Dźwięk nie odtworzony automatycznie.");
           });
         }
@@ -37,13 +33,10 @@ function startTimer() {
         clearInterval(timer);
         timer = null;
         alert("Koniec!");
-        setTimeout(() => {
-          resetTimer();
-        }, 2000);
+        setTimeout(resetTimer, 2000);
       }
     }, 1000);
   }).catch(() => {
-    // Jeśli odtwarzanie się nie powiedzie (np. brak interakcji), startujemy timer bez dźwięku
     timer = setInterval(() => {
       if (timeLeft > 0) {
         if (timeLeft <= 1) {
@@ -55,9 +48,7 @@ function startTimer() {
         clearInterval(timer);
         timer = null;
         alert("Koniec!");
-        setTimeout(() => {
-          resetTimer();
-        }, 2000);
+        setTimeout(resetTimer, 2000);
       }
     }, 1000);
   });
@@ -92,21 +83,32 @@ document.querySelectorAll(".exercise").forEach((el) => {
   });
 });
 
-// Zapamiętywanie kolorów taśm z uwzględnieniem dnia (data-day z body)
+// Zapisywanie wyborów z uwzględnieniem dnia i rodzaju (kg lub taśma)
 const day = document.body.dataset.day || "default";
 
 document.querySelectorAll("table tr").forEach((row, index) => {
-  const select = row.querySelector("select");
-  if (!select) return;
+  if (index === 0) return; // pomijamy nagłówek
 
-  const key = `tasma_${day}_${index}`;
+  const weightSelect = row.querySelector(".weight-select");
+  const bandSelect = row.querySelector(".band-color-select");
 
-  // Załaduj poprzedni wybór (jeśli był)
-  const saved = localStorage.getItem(key);
-  if (saved) select.value = saved;
+  if (weightSelect) {
+    const weightKey = `weight_${day}_${index}`;
+    const savedWeight = localStorage.getItem(weightKey);
+    if (savedWeight) weightSelect.value = savedWeight;
 
-  // Zapisuj przy zmianie
-  select.addEventListener("change", () => {
-    localStorage.setItem(key, select.value);
-  });
+    weightSelect.addEventListener("change", () => {
+      localStorage.setItem(weightKey, weightSelect.value);
+    });
+  }
+
+  if (bandSelect) {
+    const bandKey = `band_${day}_${index}`;
+    const savedBand = localStorage.getItem(bandKey);
+    if (savedBand) bandSelect.value = savedBand;
+
+    bandSelect.addEventListener("change", () => {
+      localStorage.setItem(bandKey, bandSelect.value);
+    });
+  }
 });
