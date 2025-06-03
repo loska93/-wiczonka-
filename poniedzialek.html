@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     #timer .start-button {
-      background-color: #c0392b;
+      background-color: #ff4d4d;
       color: white;
       border: none;
       padding: 15px 30px;
@@ -17,11 +17,10 @@
       transition: background-color 0.3s ease;
     }
     #timer .start-button:hover {
-      background-color: #e74c3c;
+      background-color: #e60000;
     }
-
     #timer .restart-button {
-      background-color: #27ae60;
+      background-color: #4CAF50;
       color: white;
       border: none;
       padding: 15px 30px;
@@ -31,13 +30,48 @@
       transition: background-color 0.3s ease;
     }
     #timer .restart-button:hover {
-      background-color: #2ecc71;
+      background-color: #3e8e41;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    #tooltip {
+      position: absolute;
+      display: none;
+      pointer-events: none;
+      border: 2px solid #333;
+      background: white;
+      padding: 5px;
+      border-radius: 6px;
+      max-width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    #tooltip img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    select {
+      font-size: 1rem;
+      padding: 4px 6px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
     }
   </style>
 </head>
 <body data-day="monday">
   <h1>Poniedziałek – Ćwiczenia</h1>
-  <a href="index.html" style="color: #f0f0f0; display: block; margin-bottom: 20px;">← Wróć</a>
+  <a href="index.html">← Wróć</a>
 
   <div id="timer">
     <div id="time">01:30</div>
@@ -48,12 +82,11 @@
   <table>
     <tr>
       <th>Ćwiczenie</th>
-      <th>Wybór</th>
+      <th>Ciężar (kg)</th>
+      <th>Kolor Taśmy</th>
     </tr>
     <tr>
-      <td class="exercise" data-img="https://liftmanual.com/wp-content/uploads/2023/04/dumbbell-squeeze-bench-press.jpg">
-        DUMBELL SQUEEZE PRESS 2x8
-      </td>
+      <td class="exercise" data-img="https://liftmanual.com/wp-content/uploads/2023/04/dumbbell-floor-fly.jpg">FLOOR FLYES 2x10</td>
       <td>
         <select class="weight-select">
   <option>1 kg</option><option>2 kg</option><option>3 kg</option><option>4 kg</option><option>5 kg</option>
@@ -62,11 +95,10 @@
           <option>16 kg</option><option>17 kg</option><option>18 kg</option><option>19 kg</option><option>20 kg</option>
         </select>
       </td>
+      <td></td>
     </tr>
     <tr>
-      <td class="exercise" data-img="https://liftmanual.com/wp-content/uploads/2023/04/barbell-pendlay-row.jpg">
-        PENDLAY ROW 2x6
-      </td>
+      <td class="exercise" data-img="https://i.ytimg.com/vi/xPjGpoIaGSs/sddefault.jpg">POLIQUIN FLYES 2x12</td>
       <td>
         <select class="weight-select">
   <option>1 kg</option><option>2 kg</option><option>3 kg</option><option>4 kg</option><option>5 kg</option>
@@ -75,11 +107,10 @@
           <option>16 kg</option><option>17 kg</option><option>18 kg</option><option>19 kg</option><option>20 kg</option>
         </select>
       </td>
+      <td></td>
     </tr>
     <tr>
-      <td class="exercise" data-img="https://cdn.shopify.com/s/files/1/1633/7705/files/dumbbell_pulls_480x480.jpg?v=1662030444">
-        DUMBELL ROW 2x10
-      </td>
+      <td class="exercise" data-img="https://i.imgur.com/kxWS84r.png">BIRD DOG ROW 2x8</td>
       <td>
         <select class="weight-select">
   <option>1 kg</option><option>2 kg</option><option>3 kg</option><option>4 kg</option><option>5 kg</option>
@@ -88,11 +119,10 @@
           <option>16 kg</option><option>17 kg</option><option>18 kg</option><option>19 kg</option><option>20 kg</option>
         </select>
       </td>
+      <td></td>
     </tr>
     <tr>
-      <td class="exercise" data-img="https://fitwill.app/_next/image?url=https%3A%2F%2Ffitwill.app%2Fapi%2Fimage%2F6891%3Fw%3D1024%26h%3D576&w=3840&q=75">
-        Z PRESS 2x8
-      </td>
+      <td class="exercise" data-img="https://i.imgur.com/M74X0Sy.png">AROUND THE WORLD 2x12</td>
       <td>
         <select class="weight-select">
   <option>1 kg</option><option>2 kg</option><option>3 kg</option><option>4 kg</option><option>5 kg</option>
@@ -101,11 +131,10 @@
           <option>16 kg</option><option>17 kg</option><option>18 kg</option><option>19 kg</option><option>20 kg</option>
         </select>
       </td>
+      <td></td>
     </tr>
     <tr>
-      <td class="exercise" data-img="https://liftmanual.com/wp-content/uploads/2023/04/ez-barbell-curl.jpg">
-        Ez-bar curl 2x12
-      </td>
+      <td class="exercise" data-img="https://training.fit/wp-content/uploads/2020/02/bizeps-hammercurls-800x448.png">Ez-bar curl 2x8</td>
       <td>
         <select class="weight-select">
   <option>1 kg</option><option>2 kg</option><option>3 kg</option><option>4 kg</option><option>5 kg</option>
@@ -114,17 +143,30 @@
           <option>16 kg</option><option>17 kg</option><option>18 kg</option><option>19 kg</option><option>20 kg</option>
         </select>
       </td>
+      <td></td>
     </tr>
     <tr>
-      <td class="exercise" data-img="https://training.fit/wp-content/uploads/2020/03/trizepsdruecken-langhantel.png">
-        Overhead Triceps Extension z EZ-bar 2x12
-      </td>
+      <td class="exercise" data-img="https://www.inspireusafoundation.org/wp-content/uploads/2022/12/dumbbell-close-grip-press-muscles-1024x689.png">Close-Grip Dumbbell Floor Press 2x8</td>
       <td>
         <select class="weight-select">
   <option>1 kg</option><option>2 kg</option><option>3 kg</option><option>4 kg</option><option>5 kg</option>
           <option>6 kg</option><option>7 kg</option><option>8 kg</option><option>9 kg</option><option>10 kg</option>
           <option>11 kg</option><option>12 kg</option><option>13 kg</option><option>14 kg</option><option>15 kg</option>
           <option>16 kg</option><option>17 kg</option><option>18 kg</option><option>19 kg</option><option>20 kg</option>
+        </select>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="exercise" data-img="https://thebarbellphysio.com/wp-content/uploads/2016/04/Dead-Bug.jpg">DEAD BUG WITH BAND 2x12</td>
+      <td></td>
+      <td>
+        <select class="band-color-select">
+          <option value="">-- Wybierz kolor --</option>
+          <option>Żółty</option>
+          <option>Czerwony</option>
+          <option>Czarny</option>
+          <option>Fioletowy</option>
         </select>
       </td>
     </tr>
@@ -136,7 +178,7 @@
 
   <script src="script.js"></script>
   <script>
-    // Dodaj opcje kg do każdego selecta
+    // Generowanie opcji select w HTML nie działa w pliku statycznym, więc wpiszę na sztywno:
     document.querySelectorAll(".weight-select").forEach(select => {
       for (let i = 1; i <= 20; i++) {
         const option = document.createElement("option");
@@ -148,3 +190,4 @@
   </script>
 </body>
 </html>
+
