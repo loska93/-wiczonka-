@@ -1,9 +1,8 @@
 let timer;
-let timeLeft = 90;  // 1 minuta 30 sekund
+let timeLeft = 90; // 1 minuta 30 sekund
 
-// Obiekt Audio dla dźwięku ringera
 const dingSound = new Audio('Box.mp3');
-dingSound.load(); // Przygotowanie dźwięku
+dingSound.load(); // Załaduj dźwięk
 
 function updateDisplay() {
   const minutes = Math.floor(timeLeft / 60);
@@ -57,37 +56,42 @@ function startTimer() {
 function resetTimer() {
   clearInterval(timer);
   timer = null;
-  timeLeft = 90;  // reset do 1:30
+  timeLeft = 90;
   updateDisplay();
 }
 
 updateDisplay();
 
-// Tooltip z obrazkiem
+// Tooltip z obrazkiem ćwiczenia
 document.querySelectorAll(".exercise").forEach((el) => {
   el.addEventListener("mouseenter", (e) => {
     const tooltip = document.getElementById("tooltip");
+    const imgSrc = el.dataset.img;
+    if (!imgSrc) return;
+
     tooltip.style.display = "block";
-    tooltip.querySelector("img").src = el.dataset.img;
+    tooltip.querySelector("img").src = imgSrc;
     tooltip.style.left = e.pageX + 20 + "px";
     tooltip.style.top = e.pageY - 20 + "px";
   });
+
   el.addEventListener("mousemove", (e) => {
     const tooltip = document.getElementById("tooltip");
     tooltip.style.left = e.pageX + 20 + "px";
     tooltip.style.top = e.pageY - 20 + "px";
   });
+
   el.addEventListener("mouseleave", () => {
     const tooltip = document.getElementById("tooltip");
     tooltip.style.display = "none";
   });
 });
 
-// Zapisywanie wyborów z uwzględnieniem dnia i rodzaju (kg lub taśma)
+// ZAPISYWANIE I PRZYWRACANIE WYBORÓW
 const day = document.body.dataset.day || "default";
 
 document.querySelectorAll("table tr").forEach((row, index) => {
-  if (index === 0) return; // pomijamy nagłówek
+  if (index === 0) return; // Pomijamy nagłówek
 
   const weightSelect = row.querySelector(".weight-select");
   const bandSelect = row.querySelector(".band-color-select");
